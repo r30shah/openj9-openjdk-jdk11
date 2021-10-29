@@ -563,7 +563,7 @@ public final class Method extends Executable {
         if (ma == null) {
             ma = acquireMethodAccessor();
         }
-        return ma.invoke(obj, args);
+        return com.ibm.jit.JITHelpers.invoke(ma, obj, args);
     }
 
     /**
