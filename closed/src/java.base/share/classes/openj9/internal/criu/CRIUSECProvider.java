@@ -40,7 +40,7 @@ public final class CRIUSECProvider extends Provider {
     private static final long serialVersionUID = -3240458633432287743L;
 
     public CRIUSECProvider() {
-        super("CRIUSEC", "1", "CRIUSEC Provider for IBM Semeru");
+        super("CRIUSEC", "1", "CRIUSEC Provider");
 
         String packageName = CRIUSECProvider.class.getPackage().getName() + ".";
 
@@ -57,7 +57,8 @@ public final class CRIUSECProvider extends Provider {
     /**
      * Resets the security digests.
      */
-    public static void resetDigests() {
+    public static void resetCRIUSEC() {
+        NativePRNG.clearRNGState();
         DigestBase.resetDigests();
     }
 }

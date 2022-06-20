@@ -23,6 +23,12 @@
  * questions.
  */
 
+/*
+ * ===========================================================================
+ * (c) Copyright IBM Corp. 2022, 2022 All Rights Reserved
+ * ===========================================================================
+ */
+
 /**
  * Defines the foundational APIs of the Java SE Platform.
  *
@@ -136,6 +142,8 @@ module java.base {
         jdk.crypto.cryptoki;
     exports com.sun.security.ntlm to
         java.security.sasl;
+    exports jdk.crypto.jniprovider to
+        jdk.crypto.ec;
     exports jdk.internal to
         jdk.jfr;
     exports jdk.internal.event to
@@ -271,7 +279,8 @@ module java.base {
         java.sql.rowset;
     exports sun.security.action to
         java.desktop,
-        java.security.jgss;
+        java.security.jgss,
+        jdk.crypto.ec;
     exports sun.security.internal.interfaces to
         jdk.crypto.cryptoki;
     exports sun.security.internal.spec to
@@ -335,6 +344,8 @@ module java.base {
         java.prefs;
     exports sun.util.resources to
         jdk.localedata;
+    exports openj9.internal.security to
+        jdk.crypto.ec;
 
 
     // the service types defined by the APIs in this module
