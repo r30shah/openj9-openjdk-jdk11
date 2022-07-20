@@ -206,7 +206,7 @@ class ZipOutputStream extends DeflaterOutputStream implements ZipConstants {
         case DEFLATED:
             // store size, compressed size, and crc-32 in data descriptor
             // immediately following the compressed entry data
-            if (e.size  == -1 || e.csize == -1 || e.crc   == -1)
+            if (e.size  == -1 || e.csize == -1 || e.crc   == -1 || !e.csizeSet)
                 e.flag = 8;
 
             break;
