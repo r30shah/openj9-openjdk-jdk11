@@ -220,6 +220,7 @@ class Utils {
         }
         byte[] buffer = new byte[1 << 14];
         for (JarEntry je; (je = in.getNextJarEntry()) != null; ) {
+				je.setCompressedSize(-1);
             out.putNextEntry(je);
             for (int nr; 0 < (nr = in.read(buffer)); ) {
                 out.write(buffer, 0, nr);
@@ -231,7 +232,8 @@ class Utils {
     static void copyJarFile(JarFile in, JarOutputStream out) throws IOException {
         byte[] buffer = new byte[1 << 14];
         for (JarEntry je : Collections.list(in.entries())) {
-            out.putNextEntry(je);
+            je.setCompressedSize(-1);
+				out.putNextEntry(je);
             InputStream ein = in.getInputStream(je);
             for (int nr; 0 < (nr = ein.read(buffer)); ) {
                 out.write(buffer, 0, nr);
